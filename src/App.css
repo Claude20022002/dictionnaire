@@ -1,21 +1,51 @@
 /* Header */
 header {
-    background: #667db6; /* fallback for old browsers */
+    background: #667db6;
     background: -webkit-linear-gradient(
         to right,
         #667db6,
         #0082c8,
         #0082c8,
         #667db6
-    ); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(
-        to right,
-        #667db6,
-        #0082c8,
-        #0082c8,
-        #667db6
-    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    );
+    background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
 }
+
+header nav {
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+header nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+header nav ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #fff; /* exemple si ton fond est sombre */
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: background 0.3s;
+}
+
+header nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
 /* HTML: <div class="loader"></div> */
 .loader {
     --w: 10ch;
