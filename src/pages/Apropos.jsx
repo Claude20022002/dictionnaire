@@ -7,7 +7,7 @@ const Section = styled("section")(({ theme }) => ({
     minHeight: "100vh",
     padding: theme.spacing(12, 2),
     scrollMarginTop: "100px",
-    backgroundColor: "#121212",
+    background: "linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6)",
     color: "#fff",
     display: "flex",
     justifyContent: "center",
@@ -31,7 +31,7 @@ export default function Apropos() {
 
                     <Typography variant="body1" sx={{ color: "#ccc" }}>
                         Notre application de dictionnaire vous aide à explorer
-                        la richesse de la langue française. Que vous soyez
+                        la richesse de la langue anglaise. Que vous soyez
                         étudiant, professionnel ou passionné de littérature,
                         trouvez les définitions, synonymes et expressions en un
                         clic.

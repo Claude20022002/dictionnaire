@@ -1,27 +1,37 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 
-export function useFetch(url) {
-    const [data, setData] = useState({});
-    const [isLoading, setLoading] = useState(true);
-    const [error, setError] = useState(false);
+export default function useFetch(url) {
+    const [data, setData] = useState(null); // data passe à null par défaut
+    const [isLoading, setLoading] = useState(false);
+    const [error, setError] = useState(null); // Erreur initialisée à null
 
     useEffect(() => {
         if (!url) return;
+
         setLoading(true);
-        async function fetchData() {
+        setError(null); // Réinitialiser l'erreur avant chaque nouvelle requête
+
+        const fetchData = async () => {
             try {
                 const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`Erreur HTTP: ${response.status}`);
+                }
                 const data = await response.json();
                 console.table(data);
                 setData(data);
             } catch (err) {
-                console.log(err);
-                setError(true);
+                console.error("Erreur de récupération:", err);
+                setError({
+                    message: err.message || "Une erreur inconnue est survenue",
+                });
             } finally {
                 setLoading(false);
             }
-        }
+        };
+
         fetchData();
     }, [url]);
+
     return { isLoading, data, error };
 }

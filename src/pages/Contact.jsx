@@ -7,7 +7,7 @@ const Section = styled("section")(({ theme }) => ({
     minHeight: "100vh",
     padding: theme.spacing(12, 2),
     scrollMarginTop: "100px",
-    backgroundColor: "#0d47a1",
+    background: "linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6)",
     color: "#fff",
     display: "flex",
     justifyContent: "center",
