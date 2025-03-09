@@ -52,6 +52,9 @@ export default function Search() {
         }
     }, [data]);
 
+    // Vérification si les données sont valides
+    const isInvalidWord = error?.message === "Not Found" || data?.length === 0;
+
     return (
         <Section>
             <Container maxWidth="md">
@@ -125,6 +128,14 @@ export default function Search() {
                         >
                             <CircularProgress />
                         </Box>
+                    )}
+
+                    {/* Affichage d'une alerte si le mot est introuvable */}
+                    {isInvalidWord && (
+                        <Alert severity="warning" sx={{ mt: 4 }}>
+                            Mot introuvable ou dans une autre langue. Veuillez
+                            essayer un autre mot.
+                        </Alert>
                     )}
 
                     {error && (

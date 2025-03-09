@@ -35,7 +35,7 @@ export default function Contact() {
                     </Typography>
 
                     <Typography variant="body2">
-                        📧 contact@dictionnaire.fr
+                        📧 clusamote@dictionnaire.fr
                     </Typography>
                 </Box>
             </Container>

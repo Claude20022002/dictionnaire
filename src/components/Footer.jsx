@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Typography, Link, IconButton } from "@mui/material";
 import { styled } from "@mui/system";
-import { GitHub, LinkedIn, Twitter } from "@mui/icons-material"; // Import des icônes
+import { GitHub, LinkedIn, Facebook } from "@mui/icons-material"; // Import des icônes
 
 const FooterContainer = styled(Box)(({ theme }) => ({
     backgroundColor: "#333",
@@ -47,7 +47,7 @@ const Footer = () => {
                 </Link>
                 <Link href="https://twitter.com" target="_blank" rel="noopener">
                     <IconButton sx={{ color: "#fff" }}>
-                        <Twitter />
+                        <Facebook />
                     </IconButton>
                 </Link>
             </FooterLinks>
