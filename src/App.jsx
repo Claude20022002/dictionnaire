@@ -10,7 +10,7 @@ import Historique from "./pages/Historique";
 
 export default function App() {
     return (
-        <Router>
+        <Router basename="/dictionnaire">
             <Header />
             <Routes>
                 <Route path="/" element={<Home />} />
