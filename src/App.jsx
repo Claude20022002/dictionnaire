@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Apropos from "./pages/Apropos";
 import Contact from "./pages/Contact";
 import Search from "./pages/Search";
+import Footer from "./components/Footer";
 
 export default function App() {
     return (
@@ -16,6 +17,7 @@ export default function App() {
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/search" element={<Search />} />
             </Routes>
+            <Footer />
         </Router>
     );
 }
