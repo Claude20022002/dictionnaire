@@ -9,11 +9,14 @@ const Section = styled("section")(({ theme }) => ({
     scrollMarginTop: "100px",
     backgroundColor: "#121212",
     color: "#fff",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
 }));
 
 export default function Apropos() {
     return (
-        <Section id="apropos">
+        <Section>
             <Container maxWidth="md">
                 <Box
                     component={motion.div}

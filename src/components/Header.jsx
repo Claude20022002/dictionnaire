@@ -1,5 +1,6 @@
 import React from "react";
 import { Stack, Typography, Link } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
 
 export default function Header() {
     return (
@@ -39,7 +40,8 @@ export default function Header() {
                     }}
                 >
                     <Link
-                        href="#accueil"
+                        component={RouterLink}
+                        to="/"
                         underline="none"
                         sx={{
                             color: "inherit",
@@ -51,7 +53,8 @@ export default function Header() {
                         Accueil
                     </Link>
                     <Link
-                        href="#fonctionnalites"
+                        component={RouterLink}
+                        to="/apropos"
                         underline="none"
                         sx={{
                             color: "inherit",
@@ -60,10 +63,11 @@ export default function Header() {
                             "&:hover": { color: "yellow" },
                         }}
                     >
-                        Fonctionnalités
+                        À propos
                     </Link>
                     <Link
-                        href="#contact"
+                        component={RouterLink}
+                        to="/contact"
                         underline="none"
                         sx={{
                             color: "inherit",

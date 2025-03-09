@@ -2,19 +2,24 @@ import React from "react";
 import { Container, Typography, Button, Box } from "@mui/material";
 import { styled } from "@mui/system";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const Root = styled("div")(({ theme }) => ({
     background: "linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6)",
-    paddingTop: "100px", // pour compenser le header fixe
+    paddingTop: "100px", // Compense le header fixe
     color: "#fff",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
 }));
 
 const Section = styled("section")(({ theme }) => ({
     padding: theme.spacing(10, 0),
-    minHeight: "100vh",
 }));
 
 export default function Home() {
+    const navigate = useNavigate();
+
     return (
         <Root>
             <Container maxWidth="lg">
@@ -66,6 +71,7 @@ export default function Home() {
                         <Button
                             variant="contained"
                             size="large"
+                            onClick={() => navigate("/search")}
                             sx={{
                                 background:
                                     "linear-gradient(45deg, pink, yellow)",
@@ -106,6 +112,7 @@ export default function Home() {
                             gap: 4,
                         }}
                     >
+                        {/* Fonctionnalité 1 */}
                         <Box
                             sx={{
                                 width: "300px",
@@ -123,6 +130,7 @@ export default function Home() {
                             </Typography>
                         </Box>
 
+                        {/* Fonctionnalité 2 */}
                         <Box
                             sx={{
                                 width: "300px",
@@ -140,6 +148,7 @@ export default function Home() {
                             </Typography>
                         </Box>
 
+                        {/* Fonctionnalité 3 */}
                         <Box
                             sx={{
                                 width: "300px",
@@ -156,47 +165,6 @@ export default function Home() {
                                 pour progresser.
                             </Typography>
                         </Box>
-                    </Box>
-                </Section>
-
-                {/* Section Contact */}
-                <Section id="contact">
-                    <Typography
-                        variant="h3"
-                        sx={{ mb: 4, textAlign: "center" }}
-                    >
-                        Contact
-                    </Typography>
-
-                    <Box
-                        component={motion.div}
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.2, duration: 0.8 }}
-                        sx={{
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "center",
-                        }}
-                    >
-                        <Typography sx={{ mb: 2 }}>
-                            Une question ? Une suggestion ?
-                        </Typography>
-                        <Button
-                            variant="contained"
-                            sx={{
-                                background:
-                                    "linear-gradient(45deg, pink, yellow)",
-                                color: "#000",
-                                fontWeight: "bold",
-                                "&:hover": {
-                                    background:
-                                        "linear-gradient(45deg, yellow, pink)",
-                                },
-                            }}
-                        >
-                            Nous contacter
-                        </Button>
                     </Box>
                 </Section>
             </Container>

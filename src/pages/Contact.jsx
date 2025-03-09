@@ -9,11 +9,14 @@ const Section = styled("section")(({ theme }) => ({
     scrollMarginTop: "100px",
     backgroundColor: "#0d47a1",
     color: "#fff",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
 }));
 
 export default function Contact() {
     return (
-        <Section id="contact">
+        <Section>
             <Container maxWidth="sm">
                 <Box
                     component={motion.div}
