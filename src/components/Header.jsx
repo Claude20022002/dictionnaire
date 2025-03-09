@@ -78,6 +78,19 @@ export default function Header() {
                     >
                         Contact
                     </Link>
+                    <Link
+                        component={RouterLink}
+                        to="/historique"
+                        underline="none"
+                        sx={{
+                            color: "inherit",
+                            fontWeight: "bold",
+                            cursor: "pointer",
+                            "&:hover": { color: "yellow" },
+                        }}
+                    >
+                        Historique
+                    </Link>
                 </Stack>
             </Stack>
         </Stack>

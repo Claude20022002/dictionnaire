@@ -6,6 +6,7 @@ import Apropos from "./pages/Apropos";
 import Contact from "./pages/Contact";
 import Search from "./pages/Search";
 import Footer from "./components/Footer";
+import Historique from "./pages/Historique";
 
 export default function App() {
     return (
@@ -16,6 +17,7 @@ export default function App() {
                 <Route path="/apropos" element={<Apropos />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/search" element={<Search />} />
+                <Route path="/historique" element={<Historique />} />
             </Routes>
             <Footer />
         </Router>
