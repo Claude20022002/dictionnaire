@@ -31,13 +31,17 @@ const Footer = () => {
             </Typography>
 
             <FooterLinks>
-                <Link href="https://github.com" target="_blank" rel="noopener">
+                <Link
+                    href="https://github.com/Claude20022002"
+                    target="_blank"
+                    rel="noopener"
+                >
                     <IconButton sx={{ color: "#fff" }}>
                         <GitHub />
                     </IconButton>
                 </Link>
                 <Link
-                    href="https://www.linkedin.com"
+                    href="https://www.linkedin.com/in/lusamote-kimfuta-b20000250/"
                     target="_blank"
                     rel="noopener"
                 >
@@ -45,7 +49,11 @@ const Footer = () => {
                         <LinkedIn />
                     </IconButton>
                 </Link>
-                <Link href="https://twitter.com" target="_blank" rel="noopener">
+                <Link
+                    href="https://www.facebook.com/share/1Yj7qNMj4b/?mibextid=wwXIfr"
+                    target="_blank"
+                    rel="noopener"
+                >
                     <IconButton sx={{ color: "#fff" }}>
                         <Facebook />
                     </IconButton>

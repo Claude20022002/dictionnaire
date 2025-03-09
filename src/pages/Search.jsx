@@ -92,7 +92,7 @@ export default function Search() {
                         >
                             <InputBase
                                 sx={{ width: "100%" }}
-                                placeholder="Entrez un mot"
+                                placeholder="Entrez un mot en anglais"
                                 value={query}
                                 onChange={(e) => setQuery(e.target.value)}
                                 onKeyDown={handleKeyPress}
