@@ -20,6 +20,9 @@ export default function Header() {
                     <Stack component="nav">
                         <ul>
                             <li>
+                                <Link to="/">Accueil</Link>
+                            </li>
+                            <li>
                                 <Link to="/apropos">À propos</Link>
                             </li>
                             <li>
