@@ -7,6 +7,7 @@ import {
     Alert,
     InputBase,
     CircularProgress,
+    Link,
 } from "@mui/material";
 import { styled } from "@mui/system";
 import { motion } from "framer-motion";
@@ -141,32 +142,54 @@ export default function Search() {
 
                             {data.map((entry, index) => (
                                 <Box key={index} sx={{ mb: 3 }}>
+                                    {/* Affichage du mot */}
                                     <Typography
                                         variant="h5"
+                                        component="div" // Utilisation de div au lieu de p
                                         sx={{
                                             mb: 1,
                                             textTransform: "capitalize",
                                             color: "pink",
+                                            fontWeight: "bold",
                                         }}
                                     >
                                         {entry.word}
                                     </Typography>
 
+                                    {/* Affichage des phonétiques */}
+                                    {entry.phonetics.map((phonetic, idx) => (
+                                        <Box key={idx} sx={{ mb: 2 }}>
+                                            {phonetic.text && (
+                                                <Typography
+                                                    variant="body1"
+                                                    sx={{
+                                                        color: "#ccc",
+                                                        fontStyle: "italic",
+                                                    }}
+                                                >
+                                                    Phonétique: {phonetic.text}
+                                                </Typography>
+                                            )}
+                                            {phonetic.audio && (
+                                                <audio controls>
+                                                    <source
+                                                        src={phonetic.audio}
+                                                        type="audio/mpeg"
+                                                    />
+                                                    Votre navigateur ne supporte
+                                                    pas l'élément audio.
+                                                </audio>
+                                            )}
+                                        </Box>
+                                    ))}
+
+                                    {/* Affichage des significations */}
                                     {entry.meanings.map((meaning, idx) => (
-                                        <Box
-                                            key={idx}
-                                            sx={{
-                                                ml: 2,
-                                                mb: 2,
-                                                backgroundColor: "#1e1e1e",
-                                                borderRadius: "8px",
-                                                p: 2,
-                                            }}
-                                        >
+                                        <Box key={idx} sx={{ mb: 3 }}>
                                             <Typography
                                                 variant="subtitle1"
                                                 sx={{
-                                                    fontStyle: "italic",
+                                                    fontWeight: "bold",
                                                     color: "yellow",
                                                 }}
                                             >
@@ -181,11 +204,81 @@ export default function Search() {
                                                         sx={{ mb: 1 }}
                                                     >
                                                         - {def.definition}
+                                                        {def.example && (
+                                                            <Box
+                                                                sx={{
+                                                                    mt: 1,
+                                                                    fontStyle:
+                                                                        "italic",
+                                                                    color: "#aaa",
+                                                                }}
+                                                            >
+                                                                Exemple: "
+                                                                {def.example}"
+                                                            </Box>
+                                                        )}
                                                     </Typography>
                                                 )
                                             )}
                                         </Box>
                                     ))}
+
+                                    {/* Affichage des synonymes et antonymes */}
+                                    {(entry.meanings[0].synonyms.length > 0 ||
+                                        entry.meanings[0].antonyms.length >
+                                            0) && (
+                                        <Box sx={{ mb: 2 }}>
+                                            {entry.meanings[0].synonyms.length >
+                                                0 && (
+                                                <Typography
+                                                    variant="body1"
+                                                    sx={{ color: "#ddd" }}
+                                                >
+                                                    <strong>Synonymes:</strong>{" "}
+                                                    {entry.meanings[0].synonyms.join(
+                                                        ", "
+                                                    )}
+                                                </Typography>
+                                            )}
+                                            {entry.meanings[0].antonyms.length >
+                                                0 && (
+                                                <Typography
+                                                    variant="body1"
+                                                    sx={{ color: "#ddd" }}
+                                                >
+                                                    <strong>Antonymes:</strong>{" "}
+                                                    {entry.meanings[0].antonyms.join(
+                                                        ", "
+                                                    )}
+                                                </Typography>
+                                            )}
+                                        </Box>
+                                    )}
+
+                                    {/* Lien vers la source */}
+                                    {entry.sourceUrls &&
+                                        entry.sourceUrls.length > 0 && (
+                                            <Box sx={{ mt: 3 }}>
+                                                <Typography
+                                                    variant="body2"
+                                                    sx={{ color: "#aaa" }}
+                                                >
+                                                    Source:{" "}
+                                                    <Link
+                                                        href={
+                                                            entry.sourceUrls[0]
+                                                        }
+                                                        target="_blank"
+                                                        rel="noopener"
+                                                        sx={{
+                                                            color: "lightblue",
+                                                        }}
+                                                    >
+                                                        {entry.sourceUrls[0]}
+                                                    </Link>
+                                                </Typography>
+                                            </Box>
+                                        )}
                                 </Box>
                             ))}
                         </Box>
